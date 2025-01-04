@@ -18,16 +18,25 @@ body {
 
 .accordion {
   max-width: 50rem;
-  border-radius: 1rem;
+  /* border-radius: 1rem; */
   overflow: hidden;
 }
 
 .accordion-item {
-  background-color: #fff;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: -2px 2px 3px 1px rgb(199 199 199 / 5%);
+  -webkit-box-shadow: -2px 2px 3px 1px rgb(199 199 199 / 5%);
+  -moz-box-shadow: -2px 2px 3px 1px rgb(199 199 199 / 5%)
 }
 
-.accordion-item:not(:last-child) {
+/* .accordion-item:not(:last-child) {
   border-bottom: 1px solid #e0e2e5;
+} */
+
+.accordion-item:not(:last-child) {
+  border-bottom: 2px solid #e0e2e5;
+  margin-bottom: 0.3rem;
 }
 
 .accordion-item__header {
