@@ -25,35 +25,52 @@ const data = [
 function AccordionOpen() {
   const [open, setOpen] = useState(null);
 
+  //   const handleOpen = (id) => {
+  //     setOpen(id === open ? null : id)
+  //   }
+
   return (
     <div className="accordion one-open-accordion">
       {data.map((item) => (
         <AccordionItem
           key={item.id}
-          item={item}
+          id={item.id}
+          title={item.title}
           setOpen={setOpen}
+          //   onOpen={setOpen}
           open={open}
-        />
+        >
+          {item.content}
+        </AccordionItem>
       ))}
+      <AccordionItem
+        id={0}
+        title={"Last Accordion"}
+        setOpen={setOpen}
+        open={open}
+      >
+        <p>Text for the dynamic accordion</p>
+      </AccordionItem>
     </div>
   );
 }
 
 export default AccordionOpen;
 
-function AccordionItem({ item, setOpen, open }) {
-  const isOpen = item.id === open;
+function AccordionItem({ id, title, setOpen, open, children }) {
+  const isOpen = id === open;
 
   return (
     <div className={`accordion-item ${isOpen ? "accordion__expanded" : ""}`}>
       <div
         className="accordion-item__header"
-        onClick={() => setOpen(isOpen ? null : item.id)}
+        // onClick={() => setOpen(item.id)}
+        onClick={() => setOpen(isOpen ? null : id)}
       >
-        {item.title}
+        {title}
         <ChevronDownIcon className="accordion-item__chevron" />
       </div>
-      <div className="accordion-item__content">{item.content}</div>
+      <div className="accordion-item__content">{children}</div>
       {/* {isOpen && <div className="accordion-item__content">{item.content}</div>} */}
     </div>
   );
