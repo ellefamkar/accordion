@@ -1,3 +1,6 @@
+import { ChevronDownIcon } from "@heroicons/react/24/solid";
+import { useState } from "react";
+
 const data = [
   {
     id: 1,
@@ -20,27 +23,38 @@ const data = [
 ];
 
 function AccordionOpen() {
-  return function Accordion() {
-    return (
-      <div className="accordion">
-        {data.map((item) => (
-          <AccordionItem key={item.id} item={item} />
-        ))}
-      </div>
-    );
-  };
+  const [open, setOpen] = useState(null);
+
+  return (
+    <div className="accordion one-open-accordion">
+      {data.map((item) => (
+        <AccordionItem
+          key={item.id}
+          item={item}
+          setOpen={setOpen}
+          open={open}
+        />
+      ))}
+    </div>
+  );
 }
 
 export default AccordionOpen;
 
-function AccordionItem({ item }) {
+function AccordionItem({ item, setOpen, open }) {
+  const isOpen = item.id === open;
+
   return (
-    <div className="accordion-item">
-      <div className="accordion-item__header">
+    <div className={`accordion-item ${isOpen ? "accordion__expanded" : ""}`}>
+      <div
+        className="accordion-item__header"
+        onClick={() => setOpen(isOpen ? null : item.id)}
+      >
         {item.title}
         <ChevronDownIcon className="accordion-item__chevron" />
       </div>
       <div className="accordion-item__content">{item.content}</div>
+      {/* {isOpen && <div className="accordion-item__content">{item.content}</div>} */}
     </div>
   );
 }

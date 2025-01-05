@@ -78,3 +78,16 @@ body {
 .accordion-item.accordion__expanded .accordion-item__chevron {
   rotate: 180deg;
 }
+
+.one-open-accordion {
+  margin-top: 2rem;
+}
+
+.accordion.one-open-accordion .accordion-item{
+  background-color: #437589;
+  color: #ffffff;
+}
+
+.accordion.one-open-accordion .accordion-item__content {
+  color: #b4b6b9;
+}
