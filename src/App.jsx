@@ -1,8 +1,14 @@
 import "./App.css";
 import Accordion from "./components/Accordion";
+import AccordionOpen from "./components/AccordionOpen";
 
 function App() {
-  return <Accordion />;
+  return (
+    <>
+      <Accordion />
+      <AccordionOpen />
+    </>
+  );
 }
 
 export default App;
