@@ -16,8 +16,20 @@ body {
   list-style-position: inside;
 }
 
+h1{
+  font-family: "ui-monospace";
+  margin-bottom: 2rem;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 .accordion {
-  max-width: 50rem;
+  max-width: 30rem;
+  margin: 0 auto;
   /* border-radius: 1rem; */
   overflow: hidden;
 }
@@ -79,10 +91,6 @@ body {
   rotate: 180deg;
 }
 
-.one-open-accordion {
-  margin-top: 2rem;
-}
-
 .accordion.one-open-accordion .accordion-item{
   background-color: #437589;
   color: #ffffff;
@@ -90,4 +98,21 @@ body {
 
 .accordion.one-open-accordion .accordion-item__content {
   color: #b4b6b9;
+}
+
+@media screen and (min-width: 769px) {
+
+  h1{
+    margin-bottom: 1rem;
+  }
+
+  .container{
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .accordion {
+    max-width: 32rem;
+    margin: 2rem auto;
+  }
 }

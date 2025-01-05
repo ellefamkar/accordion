@@ -4,10 +4,13 @@ import AccordionOpen from "./components/AccordionOpen";
 
 function App() {
   return (
-    <>
-      <Accordion />
-      <AccordionOpen />
-    </>
+    <div className="app">
+      <h1>Accordion</h1>
+      <div className="container">
+        <Accordion />
+        <AccordionOpen />
+      </div>
+    </div>
   );
 }
 
